@@ -5,7 +5,9 @@ module.exports = {
     "./templates/**/*.html.twig",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'work': ['Work Sans', 'sans-serif']
+    },
   },
   plugins: [],
 }
