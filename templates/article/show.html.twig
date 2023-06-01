@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ article.title }}{% endblock %}
+{% block title %}
+	{{ article.title }}
+{% endblock %}
 
 {% block body %}
 	<div class="max-w-3xl bg-[#181A2A] min-h-screen text-white mx-auto text-lg">
@@ -10,4 +12,16 @@
 		</div>
 		<img class="h-96 w-full mt-2 object-cover rounded-xl" src="{{ article.thumbnail }}"/>
 		<div class="whitespace-pre-line mx-auto  text-gray-400">{{ article.description }}</div>
-	{% endblock %}
+
+		<div id="comments">
+			<h2 class="font-bold uppercase text-3xl mb-8">Commentaires</h2>
+			<form method="post">
+				<div class="flex flex-col gap-4">
+					<label for="name">Ajouter un commentaire</label>
+					<input class="border-2 border-gray-500 rounded bg-transparent p-3" type="text" name="name" id="name">
+				</div>
+				<button type="submit" class="bg-zinc-500 text-white px-4 py-2 rounded mt-6">Envoyer</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
