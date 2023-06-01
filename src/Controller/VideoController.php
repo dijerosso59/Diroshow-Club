@@ -2,13 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Entity\Metting;
+use App\Entity\Order;
 use App\Entity\Video;
 use App\Form\VideoType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 class VideoController extends AbstractController
 {
     /**
@@ -22,33 +28,51 @@ class VideoController extends AbstractController
     }
 
     #[Route('/video', name: 'app_video')]
-    public function index(Request $request): Response
+    public function index(Request $request,UserInterface $user,EntityManagerInterface $entityManager): Response
     {
-        $video = new Video();
-        // if($user->getRoles() == ['ROLE_ADMIN']){
-            // $video->setIsPublic(true);
-        // }
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+        $userId = $user->getId();
+        if(!$userId){
+            return $this->redirectToRoute('app_login');
+        }
 
-            // var_dump($user);
-           $form = $this->createForm(VideoType::class, $video);
-           $user = $this->security->getUser(); // null or UserInterface, if logged in
-  
+        $video = new Video();
+        $form = $this->createForm(VideoType::class, $video);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $video = $form->getData();
-            
-            // ... perform some action, such as saving the task to the database
+            $formData = $form->getData();
+            $video->setUser($user);
+            $video->setContent($formData->getContent());
+            $video->setStatus(0);
+            $entityManager->persist($video);
+            $entityManager->flush();
+            $videoId=$video->getId();
 
-            return $this->redirectToRoute('app_video');
+            $order =new Order();
+            $order->setUser($user);
+            $order->setVideo($video);
+            $order->setAmount(50);
+            $order->setDate(new \DateTime('now'));
+            $order->setStatus(0);
+            $order->setMetting(null);
+            
+            
+            $entityManager->persist($order);
+            $entityManager->flush();
+
+            return $this->render('video/index.html.twig', [
+                'form' =>  $form->createView(),
+                'user' => $user->getId(),
+            ]);
         }
 
         return $this->render('video/index.html.twig', [
             'form' =>  $form->createView(),
-            // 'user' => $user->getRoles(),
+            'user' => $user->getId(),
+
         ]);
     }
 }

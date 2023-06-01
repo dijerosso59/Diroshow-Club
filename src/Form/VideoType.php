@@ -12,8 +12,11 @@ class VideoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content')
-            ->add('status')
+            ->add('content', null, [
+                'label' => 'Video Content',
+                'attr' => ['class' => 'text-black'],
+            ])
+            // ->add('status')
             // ->add('video_order')
         ;
     }
