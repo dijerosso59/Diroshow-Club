@@ -1,26 +1,236 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diroshow</title>
+    <meta
+      name="description"
+      content="A classic company or blog layout with a sidebar. Built with Pico CSS."
+    />
+    <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
+    <link rel="canonical" href="https://picocss.com/examples/company/" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    {# Run `composer require symfony/webpack-encore-bundle` to start using
+    Symfony UX #} {% block stylesheets %}
+    {{
+      encore_entry_link_tags("app")
+    }}
+    {% endblock %} {% block javascripts %}
+    {{
+      encore_entry_script_tags("app")
+    }}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="hero" data-theme="dark">
+      <nav class="container-fluid">
+        <ul>
+          <li>
+            <a href="./" class="contrast" onclick="event.preventDefault()"
+              ><strong>Brand</strong></a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast">
+                Theme
+              </summary>
+              <ul role="listbox">
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast">
+                Examples (v1)
+              </summary>
+              <ul role="listbox">
+                <li><a href="../v1-preview/">Preview</a></li>
+                <li><a href="../v1-preview-rtl/">Right-to-left</a></li>
+                <li><a href="../v1-classless/">Classless</a></li>
+                <li><a href="../v1-basic-template/">Basic template</a></li>
+                <li><a href="../v1-company/">Company</a></li>
+                <li><a href="../v1-google-amp/">Google Amp</a></li>
+                <li><a href="../v1-sign-in/">Sign in</a></li>
+                <li><a href="../v1-bootstrap-grid/">Bootstrap grid</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <header class="container">
+        <hgroup>
+          <h1>Company</h1>
+          <h2>A classic company or blog layout with a sidebar</h2>
+        </hgroup>
+        <p>
+          <a href="#" role="button" onclick="event.preventDefault()"
+            >Call to action</a
+          >
+        </p>
+      </header>
+    </div>
+    <!-- ./ Hero -->
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <header></header>
-        <main>
-            {% block content %}
+    <!-- Main -->
+    <main class="container">
+      <div class="grid">
+        <section>
+          <hgroup>
+            <h2>Présentation de Diroshow</h2>
+            <h3>
+              (PARTIE DE GAUCHE) DEMANDER À CHAT GPT <br />
+              (PARTIE DE DROITE) LISTE DES DERNIERS ARTICLES
+            </h3>
+          </hgroup>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque lobortis est vel velit bibendum ultrices. Sed aliquam
+            tortor vel odio fermentum ullamcorper eu vitae neque. Sed non diam
+            at tellus venenatis viverra. Vestibulum et leo laoreet arcu tempor
+            eleifend venenatis ac leo. Pellentesque euismod justo sed nisl
+            sollicitudin varius. Duis venenatis nisl sit amet ante rutrum
+            posuere. Etiam nec ullamcorper leo, sed placerat mauris.
+          </p>
+          <figure>
+            <img
+              src="https://img.lemde.fr/2021/04/29/0/106/1138/759/800/0/75/0/a024da9_658691956-b9725933819z-1-20210126111535-000-giuhfpu2r-1-0.jpg"
+              alt="Architecture"
+            />
+            <figcaption>
+              Image from
+              <a
+                href="https://img.lemde.fr/2021/04/29/0/106/1138/759/800/0/75/0/a024da9_658691956-b9725933819z-1-20210126111535-000-giuhfpu2r-1-0.jpg"
+                target="_blank"
+                >unsplash.com</a
+              >
+            </figcaption>
+          </figure>
+          <h3>Nulla augue metus</h3>
+          <p>
+            Pacilisis sed ante ut, posuere volutpat quam. Maecenas maximus
+            blandit mi ac finibus. Proin quis lacinia tellus. Aliquam erat
+            volutpat. Aliquam erat volutpat. Phasellus suscipit nisi augue, id
+            accumsan tortor auctor ut. Duis odio arcu, egestas nec nulla vel,
+            fermentum bibendum ex.
+          </p>
+          <h3>Sed purus sapien, porta a cursus sed, maximus et metus.</h3>
+          <p>
+            Phasellus molestie ante sed massa bibendum, eget tempus ex
+            sollicitudin. Vestibulum libero nulla, porttitor nec faucibus et,
+            scelerisque eget quam. Nullam finibus tempor dui, vel congue urna
+            condimentum ac. Fusce ultricies mauris justo, nec vulputate mauris
+            pulvinar eu. Sed tempus ligula lorem, at tincidunt risus mollis non.
+            Quisque et turpis sit amet sapien gravida ullamcorper in eu velit.
+            Curabitur luctus ornare finibus. Proin tempor nulla sagittis est
+            fermentum dapibus. Vestibulum posuere mattis congue. Ut porttitor id
+            sem euismod tristique. Quisque mi est, posuere nec lorem eu,
+            vulputate vehicula diam. Nullam scelerisque, libero posuere
+            efficitur bibendum, urna odio finibus lorem, sed volutpat dolor
+            ligula in dolor. Suspendisse suscipit efficitur neque, ut porta
+            tellus mollis vel. Nam consequat arcu ac tellus porta, nec egestas
+            orci sodales.
+          </p>
+        </section>
 
-            {% endblock %}
-        </main>
-        <footer>
-        </footer>
-    </body>
+        <aside>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()"
+            ><img
+              src="https://img.lemde.fr/2021/04/29/0/106/1138/759/800/0/75/0/a024da9_658691956-b9725933819z-1-20210126111535-000-giuhfpu2r-1-0.jpg"
+              alt="Architecture"
+          /></a>
+          <p>
+            <a href="#" onclick="event.preventDefault()">Donec sit amet</a
+            ><br />
+            <small
+              >Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra</small
+            >
+          </p>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()"
+            ><img
+              src="https://img.lemde.fr/2021/04/29/0/106/1138/759/800/0/75/0/a024da9_658691956-b9725933819z-1-20210126111535-000-giuhfpu2r-1-0.jpg"
+              alt="Architecture"
+          /></a>
+          <p>
+            <a href="#" onclick="event.preventDefault()">Suspendisse potenti</a
+            ><br />
+            <small
+              >Proin non condimentum tortor. Donec in feugiat sapien.</small
+            >
+          </p>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()"
+            ><img
+              src="https://img.lemde.fr/2021/04/29/0/106/1138/759/800/0/75/0/a024da9_658691956-b9725933819z-1-20210126111535-000-giuhfpu2r-1-0.jpg"
+              alt="Architecture"
+          /></a>
+          <p>
+            <a href="#" onclick="event.preventDefault()"
+              >Nullam lobortis placerat aliquam</a
+            ><br />
+            <small
+              >Maecenas vitae nibh blandit dolor commodo egestas vel eget neque.
+              Praesent semper justo orci, vel imperdiet mi auctor in.</small
+            >
+          </p>
+        </aside>
+      </div>
+    </main>
+    <!-- ./ Main -->
+
+    <!-- Subscribe -->
+    <section aria-label="Subscribe example">
+      <div class="container">
+        <article>
+          <hgroup>
+            <h2>Subscribe</h2>
+            <h3>Litora torquent per conubia nostra</h3>
+          </hgroup>
+          <form class="grid">
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder="First name"
+              aria-label="First name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              required
+            />
+            <button type="submit" onclick="event.preventDefault()">
+              Subscribe
+            </button>
+          </form>
+        </article>
+      </div>
+    </section>
+    <!-- ./ Subscribe -->
+
+    <!-- Footer -->
+    <footer class="container">
+      <small>
+        Lucas Thirion • Luca Di Rosso • Hugo Lagache <br />
+        <a href="https://github.com/picocss/examples/tree/master/v1-company/"
+          >Code source</a
+        >
+      </small>
+    </footer>
+    <main class="container">{% block body %}{% endblock %}</main>
+  </body>
 </html>
