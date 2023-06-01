@@ -67,7 +67,7 @@ class __TwigTemplate_0f00c35eb9efecf92aec1920c23403bd extends Template
         $this->displayBlock('javascripts', $context, $blocks);
         // line 24
         echo "\t</head>
-\t<body class=\"bg-gray-900 font-work\">
+\t<body class=\"bg-gray-900 font-work text-white\">
 \t\t<main>
 \t\t\t";
         // line 27
@@ -205,7 +205,7 @@ class __TwigTemplate_0f00c35eb9efecf92aec1920c23403bd extends Template
     }}
 \t\t{% endblock %}
 \t</head>
-\t<body class=\"bg-gray-900 font-work\">
+\t<body class=\"bg-gray-900 font-work text-white\">
 \t\t<main>
 \t\t\t{% block body %}{% endblock %}
 \t\t</main>

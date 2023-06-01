@@ -15,7 +15,7 @@
 				<li>
 					<a href="/articles/{{ article.id }}">
 						<article class="p-4">
-							<img class="w-full h-60 rounded-md" src="http://placehold.it/200x200" alt="image article">
+							<img class="w-full h-60 rounded-md" src="{{ article.thumbnail }}" alt="image article">
 							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">{{ article.title }}</h2>
 							<p class="font-normal text-gray-500 text-base mt-5 text-right">{{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</p>
 						</article>
