@@ -55,7 +55,6 @@ class __TwigTemplate_30a9d479deed4f629357a25ac3c92031 extends Template
 
     }
 
-    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -74,7 +73,7 @@ class __TwigTemplate_30a9d479deed4f629357a25ac3c92031 extends Template
 
     }
 
-    // line 5
+    // line 2
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,30 +83,45 @@ class __TwigTemplate_30a9d479deed4f629357a25ac3c92031 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/hugolgc/Desktop/Diroshow-Club/src/Controller/OrderController.php", 0), "html", null, true);
-        echo "\">src/Controller/OrderController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("/Users/hugolgc/Desktop/Diroshow-Club/templates/order/index.html.twig", 0), "html", null, true);
-        echo "\">templates/order/index.html.twig</a></code></li>
-    </ul>
-</div>
+        // line 3
+        echo "<ul class=\"grid grid-cols-3 gap-4 p-16\">
+  ";
+        // line 4
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["orders"]) || array_key_exists("orders", $context) ? $context["orders"] : (function () { throw new RuntimeError('Variable "orders" does not exist.', 4, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["order"]) {
+            // line 5
+            echo "  <li class=\"p-8 bg-gray-800 rounded-xl\">
+    <h2 class=\"flex justify-between text-2xl font-semibold\">
+      <span>";
+            // line 7
+            echo ((twig_get_attribute($this->env, $this->source, $context["order"], "video", [], "any", false, false, false, 7)) ? ("Vidéo") : ("Meeting"));
+            echo "</span>
+      <span>";
+            // line 8
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["order"], "amount", [], "any", false, false, false, 8), "html", null, true);
+            echo " €</span>
+    </h2>
+    <h3 class=\"py-2 text-xl text-yellow-400\">
+      ";
+            // line 11
+            echo ((twig_get_attribute($this->env, $this->source, $context["order"], "status", [], "any", false, false, false, 11)) ? ("Terminé") : ("En cours"));
+            echo "
+    </h3>
+    <h4 class=\"font-medium\">
+      ";
+            // line 14
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDateTime($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 14, $this->source); })()), "date", [], "any", false, false, false, 14), "medium", "medium", "EEEE dd MMMM YYYY", null, "gregorian", "fr"), "html", null, true);
+            echo "
+    </h4>
+  </li>
+  ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['order'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 18
+        echo "</ul>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,30 +143,29 @@ class __TwigTemplate_30a9d479deed4f629357a25ac3c92031 extends Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  124 => 18,  114 => 14,  108 => 11,  102 => 8,  98 => 7,  94 => 5,  90 => 4,  87 => 3,  77 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}Hello OrderController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ '/Users/hugolgc/Desktop/Diroshow-Club/src/Controller/OrderController.php'|file_link(0) }}\">src/Controller/OrderController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ '/Users/hugolgc/Desktop/Diroshow-Club/templates/order/index.html.twig'|file_link(0) }}\">templates/order/index.html.twig</a></code></li>
-    </ul>
-</div>
+        return new Source("{% extends 'base.html.twig' %} {% block title %}Hello OrderController!{%
+endblock %} {% block body %}
+<ul class=\"grid grid-cols-3 gap-4 p-16\">
+  {% for order in orders %}
+  <li class=\"p-8 bg-gray-800 rounded-xl\">
+    <h2 class=\"flex justify-between text-2xl font-semibold\">
+      <span>{{ order.video ? \"Vidéo\" : \"Meeting\" }}</span>
+      <span>{{ order.amount }} €</span>
+    </h2>
+    <h3 class=\"py-2 text-xl text-yellow-400\">
+      {{ order.status ? \"Terminé\" : \"En cours\" }}
+    </h3>
+    <h4 class=\"font-medium\">
+      {{ article.date | format_datetime(locale='fr',pattern=\"EEEE dd MMMM YYYY\") }}
+    </h4>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}
 ", "order/index.html.twig", "/Users/hugolgc/Desktop/Diroshow-Club/templates/order/index.html.twig");
     }

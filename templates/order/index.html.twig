@@ -1,20 +1,19 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello OrderController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/hugolgc/Desktop/Diroshow-Club/src/Controller/OrderController.php'|file_link(0) }}">src/Controller/OrderController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/hugolgc/Desktop/Diroshow-Club/templates/order/index.html.twig'|file_link(0) }}">templates/order/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% extends 'base.html.twig' %} {% block title %}Hello OrderController!{%
+endblock %} {% block body %}
+<ul class="grid grid-cols-3 gap-4 p-16">
+  {% for order in orders %}
+  <li class="p-8 bg-gray-800 rounded-xl">
+    <h2 class="flex justify-between text-2xl font-semibold">
+      <span>{{ order.video ? "Vidéo" : "Meeting" }}</span>
+      <span>{{ order.amount }} €</span>
+    </h2>
+    <h3 class="py-2 text-xl text-yellow-400">
+      {{ order.status ? "Terminé" : "En cours" }}
+    </h3>
+    <h4 class="font-medium">
+      {{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}
+    </h4>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}

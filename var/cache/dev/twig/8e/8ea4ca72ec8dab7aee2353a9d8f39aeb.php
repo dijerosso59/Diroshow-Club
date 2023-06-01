@@ -105,7 +105,10 @@ class __TwigTemplate_e0c52cec8c4600d7c1a4829d649dd90c extends Template
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 16), "html", null, true);
             echo "\">
 \t\t\t\t\t\t<article class=\"p-4\">
-\t\t\t\t\t\t\t<img class=\"w-full h-60 rounded-md\" src=\"http://placehold.it/200x200\" alt=\"image article\">
+\t\t\t\t\t\t\t<img class=\"w-full h-60 rounded-md\" src=\"";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "thumbnail", [], "any", false, false, false, 18), "html", null, true);
+            echo "\" alt=\"image article\">
 \t\t\t\t\t\t\t<h2 class=\"text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl\">";
             // line 19
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "title", [], "any", false, false, false, 19), "html", null, true);
@@ -148,7 +151,7 @@ class __TwigTemplate_e0c52cec8c4600d7c1a4829d649dd90c extends Template
 
     public function getDebugInfo()
     {
-        return array (  126 => 25,  115 => 20,  111 => 19,  105 => 16,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  129 => 25,  118 => 20,  114 => 19,  110 => 18,  105 => 16,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -170,7 +173,7 @@ class __TwigTemplate_e0c52cec8c4600d7c1a4829d649dd90c extends Template
 \t\t\t\t<li>
 \t\t\t\t\t<a href=\"/articles/{{ article.id }}\">
 \t\t\t\t\t\t<article class=\"p-4\">
-\t\t\t\t\t\t\t<img class=\"w-full h-60 rounded-md\" src=\"http://placehold.it/200x200\" alt=\"image article\">
+\t\t\t\t\t\t\t<img class=\"w-full h-60 rounded-md\" src=\"{{ article.thumbnail }}\" alt=\"image article\">
 \t\t\t\t\t\t\t<h2 class=\"text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl\">{{ article.title }}</h2>
 \t\t\t\t\t\t\t<p class=\"font-normal text-gray-500 text-base mt-5 text-right\">{{ article.date | format_datetime(locale='fr',pattern=\"EEEE dd MMMM YYYY\") }}</p>
 \t\t\t\t\t\t</article>

@@ -6,7 +6,7 @@
 	<div class="max-w-3xl bg-[#181A2A] min-h-screen text-white mx-auto text-lg">
 		<h1 class="text-2xl font-bold pt-4">{{ article.title }}</h1>
 		<div class="flex gap-x-2 text-sm my-6 text-gray-500">
-			<div>{{ article.date |  | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</div>
+			<div>{{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</div>
 		</div>
 		<img class="h-96 w-full mt-2 object-cover rounded-xl" src="{{ article.thumbnail }}"/>
 		<div class="whitespace-pre-line mx-auto  text-gray-400">{{ article.description }}</div>
