@@ -3,16 +3,16 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-	<h1>Register</h1>
-
+	<h1>Video</h1>
 	{{ form_start(form) }}
 	{{ form_row(form.content,{
         'label':'Contenu de la vidéo',
+        'attr':{
+            'placeholder':'Contenu de la vidéo',
+        }
     }) }}
-	{{ form_row(form.status) }}
-	{# {{ form_row(form.user) }} #}
-	{{ form_row(form.video_order) }}
-
-	<button type="submit" class="btn">Register</button>
+	<button type="submit" class="btn">
+		Register</button>
 	{{ form_end(form) }}
+
 {% endblock %}

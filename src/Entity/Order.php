@@ -29,11 +29,11 @@ class Order
     private ?User $user = null;
 
     #[ORM\OneToOne(inversedBy: 'video_order', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Video $video = null;
 
     #[ORM\OneToOne(inversedBy: 'metting_order', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Metting $metting = null;
 
     public function getId(): ?int
@@ -106,7 +106,7 @@ class Order
         return $this->metting;
     }
 
-    public function setMetting(Metting $metting): self
+    public function setMetting(?Metting $metting): self
     {
         $this->metting = $metting;
 
