@@ -64,9 +64,8 @@ class VideoController extends AbstractController
             $entityManager->persist($order);
             $entityManager->flush();
 
-            return $this->render('video/index.html.twig', [
+            return $this->render('success.html.twig', [
                 'form' =>  $form->createView(),
-                'user' => $user->getId(),
             ]);
         }
 
