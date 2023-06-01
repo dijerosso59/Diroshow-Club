@@ -11,9 +11,9 @@
 			<div>{{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</div>
 		</div>
 		<img class="h-96 w-full mt-2 object-cover rounded-xl" src="{{ article.thumbnail }}"/>
-		<div class="whitespace-pre-line mx-auto  text-gray-400">{{ article.description }}</div>
+		<div class="whitespace-pre-line mx-auto  text-gray-400 mt-6">{{ article.description }}</div>
 
-		<div id="comments">
+		<div id="comments" class="mt-10 pb-10">
 			<h2 class="font-bold uppercase text-3xl mb-8">Commentaires</h2>
 			<form method="post">
 				<div class="flex flex-col gap-4">
