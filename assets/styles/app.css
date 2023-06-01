@@ -7,3 +7,13 @@
 input{
     background-color: black;
 }
+
+select{
+    background-color: transparent;
+    color: white;
+}
+
+option{
+    background-color: black;
+    color: white;
+}

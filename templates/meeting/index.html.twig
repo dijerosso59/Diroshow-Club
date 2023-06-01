@@ -3,22 +3,32 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-	<h1>Video</h1>
-	{{ form_start(form) }}
-	{{ form_row(form.date,{
-        'label':'Date',
-        'attr':{
+	<div class="h-screen flex">
+		{{
+    form_start(form, {
+      attr: {
+        class: "m-auto max-w-xs w-full flex flex-col gap-4"
+      }
+    })
+  }}
+		{{ form_row(form.date,{
+        'label':'Date du rendez-vous',
+        attr:{
             'placeholder':'Contenu de la vidéo',
-        }
-    }) }}
-	{{ form_row(form.location,{
-        'label':'Lieu du rendez-vous',
-        'attr':{
-            'placeholder':'Contenu de la vidéo',
-        }
-    }) }}
-	<button type="submit" class="btn">
-		Register</button>
-	{{ form_end(form) }}
+        class: "block w-full mt-1 px-2 py-2 text-black bg-gray-800 rounded-md"
 
+        }
+    }) }}
+		{{ form_row(form.location,{
+        'label':'Lieu du rendez-vous',
+        attr:{
+            'placeholder':'Lille',
+        class: "block w-full mt-1 px-2 py-2 bg-gray-800 rounded-md"
+
+        }
+    }) }}
+		<button class="px-2 py-2 bg-gray-800 border-2 border-gray-700 rounded-md" type="submit" class="btn">
+			Confirmer</button>
+		{{ form_end(form) }}
+	</div>
 {% endblock %}
