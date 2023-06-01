@@ -1,18 +1,28 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}{% endblock %}
-
-{% block body %}
-	<h1>Video</h1>
-	{{ form_start(form) }}
-	{{ form_row(form.content,{
-        'label':'Contenu de la vidéo',
-        'attr':{
-            'placeholder':'Contenu de la vidéo',
-        }
-    }) }}
-	<button type="submit" class="btn">
-		Register</button>
-	{{ form_end(form) }}
+{% extends 'base.html.twig' %} {% block title %}{% endblock %} {% block body %}
+<div class="h-screen flex">
+  {{
+    form_start(form, {
+      attr: {
+        class: "m-auto max-w-xs w-full flex flex-col gap-4"
+      }
+    })
+  }}
+  <h1 class="text-center mb-8 text-[32px] font-semibold">Vidéo</h1>
+  {{
+    form_row(form.content, {
+      label: "Contenu de la vidéo",
+      attr: {
+        class: "block w-full mt-1 px-2 py-2 bg-gray-800 rounded-md"
+      }
+    })
+  }}
+  <button
+    type="submit"
+    class="px-2 py-2 bg-gray-800 border-2 border-gray-700 rounded-md"
+  >
+    Ajouter
+  </button>
+  {{ form_end(form) }}
+</div>
 
 {% endblock %}
