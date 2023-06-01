@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<h1>Video</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.date,{
+        'label':'Date',
+        'attr':{
+            'placeholder':'Contenu de la vidéo',
+        }
+    }) }}
+	{{ form_row(form.location,{
+        'label':'Lieu du rendez-vous',
+        'attr':{
+            'placeholder':'Contenu de la vidéo',
+        }
+    }) }}
+	<button type="submit" class="btn">
+		Register</button>
+	{{ form_end(form) }}
+
+{% endblock %}

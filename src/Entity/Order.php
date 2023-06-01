@@ -94,7 +94,7 @@ class Order
         return $this->video;
     }
 
-    public function setVideo(Video $video): self
+    public function setVideo(?Video $video): self
     {
         $this->video = $video;
 
