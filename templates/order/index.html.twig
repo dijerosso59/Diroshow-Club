@@ -1,19 +1,23 @@
-{% extends 'base.html.twig' %} {% block title %}Hello OrderController!{%
-endblock %} {% block body %}
-<ul class="grid grid-cols-3 gap-4 p-16">
-  {% for order in orders %}
-  <li class="p-8 bg-gray-800 rounded-xl">
-    <h2 class="flex justify-between text-2xl font-semibold">
-      <span>{{ order.video ? "Vidéo" : "Meeting" }}</span>
-      <span>{{ order.amount }} €</span>
-    </h2>
-    <h3 class="py-2 text-xl text-yellow-400">
-      {{ order.status ? "Terminé" : "En cours" }}
-    </h3>
-    <h4 class="font-medium">
-      {{ order.date | format_datetime(locale='fr', pattern="EEEE dd MMMM YYYY") }}
-    </h4>
-  </li>
-  {% endfor %}
-</ul>
+{% extends 'base.html.twig' %}
+{% block title %}Hello OrderController!
+{%
+endblock %}
+{% block body %}
+	<ul class="grid grid-cols-3 gap-4 p-16 pt-20">
+		{% for order in orders %}
+			<li class="p-8 bg-gray-800 rounded-xl">
+				<h2 class="flex justify-between text-2xl font-semibold">
+					<span>{{ order.video ? "Vidéo" : "Meeting" }}</span>
+					<span>{{ order.amount }}
+						€</span>
+				</h2>
+				<h3 class="py-2 text-xl text-yellow-400">
+					{{ order.status ? "Terminé" : "En cours" }}
+				</h3>
+				<h4 class="font-medium">
+					{{ order.date | format_datetime(locale='fr', pattern="EEEE dd MMMM YYYY") }}
+				</h4>
+			</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

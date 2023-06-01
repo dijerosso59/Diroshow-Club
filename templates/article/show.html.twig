@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="max-w-3xl bg-[#181A2A] min-h-screen text-white mx-auto text-lg">
+	<div class="max-w-3xl bg-[#181A2A] min-h-screen text-white mx-auto text-lg pt-20">
 		<h1 class="text-2xl font-bold pt-4">{{ article.title }}</h1>
 		<div class="flex gap-x-2 text-sm my-6 text-gray-500">
 			<div>{{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</div>

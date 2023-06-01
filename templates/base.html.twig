@@ -10,7 +10,7 @@
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using
-								    Symfony UX #}
+																																																																																																																    Symfony UX #}
 		{% block stylesheets %}
 			{{
       encore_entry_link_tags("app")
@@ -22,9 +22,38 @@
     }}
 		{% endblock %}
 	</head>
-	<body class="bg-gray-900 font-work text-white">
+	<body class="bg-gray-900 relative font-work text-white">
+		<header class="absolute top-0 w-full flex justify-between h-20 items-center px-6">
+			<div class="flex-1">
+				<a href="{{ path('app_blog') }}" class="text-xl hover:underline font-bold">Accueil</a>
+			</div>
+			{# login #}
+			{% if app.user %}
+				<div class="flex gap-x-3">
+
+					<div class=" text-right">
+						<a href="{{ path('app_video') }}" class="text-xl hover:underline ">Video</a>
+					</div>
+					<div class=" text-right">
+						<a href="{{ path('app_meeting') }}" class="text-xl hover:underline ">Meeting</a>
+					</div>
+					<div class=" text-right shrink-0">
+						<a href="{{ path('app_order') }}" class="text-xl hover:underline   ">Mes commandes</a>
+					</div>
+					<div class=" text-right">
+						<a href="{{ path('app_logout') }}" class="text-xl hover:underline  ml-4">Déconnexion</a>
+					</div>
+				</div>
+			{% else %}
+				<div class="flex gap-x-3">
+					<div class=" text-right">
+						<a href="{{ path('app_login') }}" class="text-xl hover:underline ">Connexion</a>
+					</div>
+				</div>
+			{% endif %}
+		</header>
 		<main>
 			{% block body %}{% endblock %}
 		</main>
 	</body>
-</html>
+</html></body></html>
