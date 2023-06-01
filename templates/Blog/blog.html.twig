@@ -1,7 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Blog
-{% endblock %}
+{% block title %}Articles{% endblock %}
 
 {% block body %}
 	<section id="posts">
@@ -9,44 +8,22 @@
 			<div style="background-image: url(https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)" class="flex bg-cover bg-no-repeat bg-center">
 				<h1 class=" m-auto text-white font-semibold text-xl lg:text-2xl xl:text-3xl">Blog</h1>
 			</div>
-			<p class="font-bold text-white text-lg mb-8 md:text-xl xl:text-2xl">Derniers article</p>
+			<p class="font-bold text-white text-lg mb-8 md:text-xl xl:text-2xl">Derniers articles</p>
 			<ul class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+				
+				{% for article in articles %}
 				<li>
-					<a href="">
+					<a href="/articles/{{ article.id }}">
 						<article class="p-4">
 							<img class="w-full h-60 rounded-md" src="http://placehold.it/200x200" alt="image article">
-							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">How to design a product that can grow itself 10x in year</h2>
-							<p class="font-normal text-gray-500 text-base mt-5 text-right">August 20, 2022</p>
+							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">{{ article.title }}</h2>
+							<p class="font-normal text-gray-500 text-base mt-5 text-right">{{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</p>
 						</article>
 					</a>
 				</li>
-				<li>
-					<a href="">
-						<article class="p-4">
-							<img class="w-full h-60 rounded-md" src="http://placehold.it/200x200" alt="image article">
-							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">How to design a product that can grow itself 10x in year</h2>
-							<p class="font-normal text-gray-500 text-base mt-5 text-right">August 20, 2022</p>
-						</article>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<article class="p-4">
-							<img class="w-full h-60 rounded-md" src="http://placehold.it/200x200" alt="image article">
-							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">How to design a product that can grow itself 10x in year</h2>
-							<p class="font-normal text-gray-500 text-base mt-5 text-right">August 20, 2022</p>
-						</article>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<article class="p-4">
-							<img class="w-full h-60 rounded-md" src="http://placehold.it/200x200" alt="image article">
-							<h2 class="text-white mt-7 text-lg font-semibold md:text-xl xl:text-2xl">How to design a product that can grow itself 10x in year</h2>
-							<p class="font-normal text-gray-500 text-base mt-5 text-right">August 20, 2022</p>
-						</article>
-					</a>
-				</li>
+				{% endfor %}
+				
 			</ul>
-			<div></section>
+			<div>
+		</section>
 		{% endblock %}
