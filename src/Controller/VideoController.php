@@ -24,16 +24,17 @@ class VideoController extends AbstractController
 
     public function __construct(Security $security)
     {
-       $this->security = $security;
+        $this->security = $security;
     }
 
     #[Route('/video', name: 'app_video')]
-    public function index(Request $request,UserInterface $user,EntityManagerInterface $entityManager): Response
+    public function index(Request $request, UserInterface $user, EntityManagerInterface $entityManager): Response
     {
         /** @var \App\Entity\User $user */
         $user = $this->getUser();
         $userId = $user->getId();
-        if(!$userId){
+
+        if (!$userId) {
             return $this->redirectToRoute('app_login');
         }
 
@@ -42,24 +43,24 @@ class VideoController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
-            
+
             $formData = $form->getData();
             $video->setUser($user);
             $video->setContent($formData->getContent());
             $video->setStatus(0);
             $entityManager->persist($video);
             $entityManager->flush();
-            $videoId=$video->getId();
+            $videoId = $video->getId();
 
-            $order =new Order();
+            $order = new Order();
             $order->setUser($user);
             $order->setVideo($video);
             $order->setAmount(50);
             $order->setDate(new \DateTime('now'));
             $order->setStatus(0);
             $order->setMetting(null);
-            
-            
+
+
             $entityManager->persist($order);
             $entityManager->flush();
 
