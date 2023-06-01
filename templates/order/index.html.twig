@@ -11,7 +11,7 @@ endblock %} {% block body %}
       {{ order.status ? "Terminé" : "En cours" }}
     </h3>
     <h4 class="font-medium">
-      {{ article.date | format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}
+      {{ order.date | format_datetime(locale='fr', pattern="EEEE dd MMMM YYYY") }}
     </h4>
   </li>
   {% endfor %}
